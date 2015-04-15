@@ -4,7 +4,7 @@
 ```
 npm install react-native-cli -g
 
-init.sh
+sh init.sh
 npm install
 gulp watch
 ```
