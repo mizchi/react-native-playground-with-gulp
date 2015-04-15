@@ -1,31 +1,15 @@
 'use strict';
 global.React = global.require('react-native');
+let xtend = require('xtend');
 
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
+let {View, Text} = React;
+let template = require('./template');
+let styles = React.StyleSheet.create(require('./styles'));
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
-
-var $ = React.createElement
-var el = $(View, {style: styles.container}, [
-  $(Text, {}, "Welcome")
-]);
-
-var HelloNative = React.createClass({
+let HelloNative = React.createClass({
   render: function() {
-    return el;
+    return template(xtend({}, {View, Text, styles}));
   }
 });
 
-AppRegistry.registerComponent('HelloNative', () => HelloNative);
+React.AppRegistry.registerComponent('HelloNative', () => HelloNative);
